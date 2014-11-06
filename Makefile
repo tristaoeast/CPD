@@ -1,8 +1,9 @@
 all:	serial omp opt
 serial:
-	gcc -g lcs-serial.c -lm -o lcs-serial
+	gcc -g -fopenmp lcs-serial.c -lm -o lcs-serial
 omp:
-	gcc -g lcs-omp.c -lm -o lcs-omp
+	gcc -g -fopenmp lcs-omp.c -lm -o lcs-omp
 opt:
-	gcc -g lcs-omp-opt.c -lm -o opt
-
+	gcc -g -fopenmp lcs-omp-opt.c -lm -o opt
+clean:
+	rm lcs-serial lcs-omp opt
